@@ -22,7 +22,7 @@ class PaymentController extends Controller
             return response()->json(['error' => 'Invalid product'], 400);
         }
 
-        $amount = (int) $coupon->price;
+        $amount = (int) $coupon->price * 100;
 
         $keyId     = env('RAZORPAY_KEY');
         $keySecret = env('RAZORPAY_SECRET');

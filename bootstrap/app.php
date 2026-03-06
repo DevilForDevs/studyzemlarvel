@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->validateCsrfTokens(except: [
             'signup',         // exclude /signup
+            'login',          // exclude /login
             "logout",
             "update-password",
             "delete-account",
@@ -23,7 +24,6 @@ return Application::configure(basePath: dirname(__DIR__))
             "create-order",
             "verifyPayment"
         ]);
-        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

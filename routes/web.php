@@ -8,13 +8,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/me', [AuthController::class, 'me']);
 Route::get('/coupons', [ContentsController::class, 'coupons']);
-
-Route::get('/{any}', function () {
-    return response()->file(public_path('index.html'));
-})->where('any', '.*');
 
 Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);
